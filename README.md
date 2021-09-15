@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+[![Codeship Status for LaunchAcademy/rails-staff-group-project](https://app.codeship.com/projects/eaaed2cc-2299-4b66-82e7-a0938cd469ec/status?branch=master)](https://app.codeship.com/projects/451542)

@@ -26,7 +26,9 @@ const ResourceShow = (props) => {
   return (
     <>
       <h1>{resource.name}</h1>
-      <a href={resource.url} target="_blank">{resource.url}</a>
+      <a href={resource.url} target="_blank">
+        {resource.url}
+      </a>
     </>
   )
 }
