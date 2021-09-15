@@ -1,8 +1,8 @@
-import React from 'react'
-import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import React from "react"
+import { Route, Switch, BrowserRouter } from "react-router-dom"
 
-import ResourceList from './layout/ResourceList'
-import ResourceShow from './layout/ResourceShow'
+import ResourceList from "./layout/ResourceList"
+import ResourceShow from "./layout/ResourceShow"
 
 export const App = (props) => {
   return (
@@ -16,4 +16,3 @@ export const App = (props) => {
 }
 
 export default App
-
