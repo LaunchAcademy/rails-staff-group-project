@@ -32,3 +32,4 @@ const ResourceShow = (props) => {
 }
 
 export default ResourceShow
+

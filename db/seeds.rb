@@ -9,3 +9,4 @@
 stack_overflow = Resource.create(name: "StackOverflow", url: "https://stackoverflow.com/")
 free_code_camp = Resource.create(name: "Free Code Camp", url: "https://www.freecodecamp.org/")
 codecademy = Resource.create(name: "Codecademy", url: "https://www.codecademy.com/")
+
