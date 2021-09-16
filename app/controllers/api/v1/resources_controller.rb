@@ -1,4 +1,3 @@
-require 'pry'
 class Api::V1::ResourcesController < ApiController
   def index
     render json: Resource.all
