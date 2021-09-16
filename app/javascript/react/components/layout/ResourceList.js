@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 import ResourceTile from "./ResourceTile"
 
@@ -29,10 +30,12 @@ const ResourceList = (props) => {
   })
 
   return (
-    <>
+    <div>
       <h2>Here is a list of resources:</h2>
       {resourceTiles}
-    </>
+      <br />
+      <h5><Link to="/resources/new">Add a resource</Link></h5>
+    </div>
   )
 }
 
