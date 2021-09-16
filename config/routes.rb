@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   get "/resources", to: "homes#index"
-
-  resources :resources, only: [:index, :show]
+  get "/resources/:id", to: "homes#index"
+  get "/resources/new", to: "homes#index"
 
   namespace :api do
     namespace :v1 do
-      resources :resources, only: [:index, :show]
+      resources :resources, only: [:index, :show, :create]
     end
   end
 end
