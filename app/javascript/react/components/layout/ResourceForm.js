@@ -48,7 +48,7 @@ const ResourceForm = (props) => {
     }
 
   return (
-    <>
+    <div>
       <h1>Add a resource</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
@@ -66,7 +66,7 @@ const ResourceForm = (props) => {
         </label>
         <input type="submit" value="Submit" />
       </form>
-    </>
+    </div>
   )
 }
 
