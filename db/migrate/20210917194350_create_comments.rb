@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
     create_table :comments do |t|
       t.belongs_to :resource, null: false
       t.string :body, null: false
-      t.string :rating, null: false
+      t.integer :rating, null: false
 
       t.timestamps
     end
