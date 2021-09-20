@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react"
 
+import CommentTile from "./CommentTile"
+
 const ResourceShow = (props) => {
   const [resource, setResource] = useState({})
+  const [comments, setComments] = useState([])
   const resourceId = props.match.params.id
 
   const fetchResource = async () => {
@@ -14,6 +17,7 @@ const ResourceShow = (props) => {
       }
       const resourceData = await response.json()
       setResource(resourceData.resource)
+      setComments(resourceData.resource.comments)
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
     }
@@ -23,12 +27,17 @@ const ResourceShow = (props) => {
     fetchResource()
   }, [])
 
+  const commentTiles = comments.map((comment) => {
+    return <CommentTile key={comment.id} comment={comment} />
+  })
+
   return (
     <div>
       <h1>{resource.name}</h1>
-      <a href={resource.url} target="_blank">
+      <h4><a href={resource.url} target="_blank">
         {resource.url}
-      </a>
+      </a></h4>
+      {commentTiles}
     </div>
   )
 }
