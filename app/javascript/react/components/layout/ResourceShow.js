@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 
-import CommentTile from "./CommentTile"
-import CommentForm from "./CommentForm"
+import ReviewTile from "./ReviewTile"
+import ReviewForm from "./ReviewForm"
 
 const ResourceShow = (props) => {
-  const [resource, setResource] = useState({ comments: [] })
+  const [resource, setResource] = useState({ reviews: [] })
+  const [currentUser, setCurrentUser] = useState({})
 
   const resourceId = props.match.params.id
 
@@ -18,6 +19,7 @@ const ResourceShow = (props) => {
       }
       const resourceData = await response.json()
       setResource(resourceData.resource)
+      setCurrentUser(resourceData.resource.current_user)
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
     }
@@ -27,16 +29,16 @@ const ResourceShow = (props) => {
     fetchResource()
   }, [])
 
-  const addNewComment = async (comment) => {
+  const addNewReview = async (review) => {
     try {
-      const response = await fetch(`/api/v1/resources/${resourceId}/comments`, {
+      const response = await fetch(`/api/v1/resources/${resourceId}/reviews`, {
         credentials: "same-origin",
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(comment),
+        body: JSON.stringify(review),
       })
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
@@ -44,15 +46,15 @@ const ResourceShow = (props) => {
         throw error
       }
       const responseBody = await response.json()
-      const newComments = resource.comments.concat(responseBody.comment)
-      setResource({ ...resource, comments: newComments })
+      const newReviews = resource.reviews.concat(responseBody.review)
+      setResource({ ...resource, reviews: newReviews })
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
   }
 
-  const commentTiles = resource.comments.map((comment) => {
-    return <CommentTile key={comment.id} comment={comment} />
+  const reviewTiles = resource.reviews.map((review) => {
+    return <ReviewTile key={review.id} review={review} currentUser={currentUser} />
   })
 
   return (
@@ -63,8 +65,8 @@ const ResourceShow = (props) => {
           {resource.url}
         </a>
       </h4>
-      <CommentForm addNewComment={addNewComment} />
-      {commentTiles}
+      <ReviewForm addNewReview={addNewReview} />
+      {reviewTiles}
     </div>
   )
 }

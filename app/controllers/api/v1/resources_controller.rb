@@ -4,7 +4,7 @@ class Api::V1::ResourcesController < ApiController
   end
 
   def show
-    render json: Resource.find(params[:id])
+    render json: Resource.find(params[:id]), serializer: ResourceShowSerializer
   end
 
   def create
