@@ -1,5 +1,3 @@
 class ResourceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :url, :comments
-
-  has_many :comments 
+  attributes :id, :name, :url
 end

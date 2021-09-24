@@ -10,8 +10,8 @@ stack_overflow = Resource.create(name: "StackOverflow", url: "https://stackoverf
 free_code_camp = Resource.create(name: "Free Code Camp", url: "https://www.freecodecamp.org/")
 codecademy = Resource.create(name: "Codecademy", url: "https://www.codecademy.com/")
 
-Comment.create(body: "good but random", rating: 4, resource: stack_overflow)
-Comment.create(body: "not a huge fan", rating: 2, resource: stack_overflow)
-Comment.create(body: "it is free woohoo!", rating: 5, resource: free_code_camp)
-Comment.create(body: "great resource", rating: 5, resource: codecademy)
-Comment.create(body: "good css curriculum", rating: 3, resource: codecademy)
+Review.create(body: "good but random", rating: 4, resource: stack_overflow)
+Review.create(body: "not a huge fan", rating: 2, resource: stack_overflow)
+Review.create(body: "it is free woohoo!", rating: 5, resource: free_code_camp)
+Review.create(body: "great resource", rating: 5, resource: codecademy)
+Review.create(body: "good css curriculum", rating: 3, resource: codecademy)

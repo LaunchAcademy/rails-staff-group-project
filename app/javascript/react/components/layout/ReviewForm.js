@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const CommentForm = (props) => {
+const ReviewForm = (props) => {
   const [form, setForm] = useState({
     body: "",
     rating: "",
@@ -12,7 +12,7 @@ const CommentForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.addNewComment(form)
+    props.addNewReview(form)
     setForm({
       body: "",
       rating: "",
@@ -21,7 +21,7 @@ const CommentForm = (props) => {
 
   return (
     <div>
-      <h3>Add a comment</h3>
+      <h3>Add a review</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="rating">Rating:</label>
         <input
@@ -41,10 +41,10 @@ const CommentForm = (props) => {
             value={form.body}
           />
         </label>
-        <input type="submit" value="Add Comment" />
+        <input type="submit" value="Add Review" />
       </form>
     </div>
   )
 }
 
-export default CommentForm
+export default ReviewForm

@@ -1,5 +1,5 @@
 class Resource < ApplicationRecord
-  has_many :comments
+  has_many :reviews
   
   validates :name, presence: true
   validates :url, presence: true
