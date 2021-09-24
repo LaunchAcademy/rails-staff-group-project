@@ -9,9 +9,9 @@ class Api::V1::VotesController < ApiController
       vote_value = -1
     end
 
-    current_vote = Vote.where(user_id: user_id, review_id: review_id)[0]
+    current_vote = Vote.find_by(user_id: user_id, review_id: review_id)
     if current_vote == nil
-      vote = Vote.new({review_id: review_id, user_id: user_id, value: vote_value})
+      vote = Vote.new({ review_id: review_id, user_id: user_id, value: vote_value })
       if vote.save
         render json: { vote: vote }
       else
