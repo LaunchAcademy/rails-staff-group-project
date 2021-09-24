@@ -38,7 +38,3 @@ const CommentTile = (props) => {
 }
 
 export default CommentTile
-
-// check if votes according to user id and comment id
-// if not voted - create in votes controller
-// if voted - update in votes controller
