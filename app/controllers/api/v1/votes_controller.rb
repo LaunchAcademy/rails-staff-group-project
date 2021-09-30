@@ -10,6 +10,7 @@ class Api::V1::VotesController < ApiController
     end
 
     current_vote = Vote.find_by(user_id: user_id, review_id: review_id)
+    
     if current_vote == nil
       vote = Vote.new({ review_id: review_id, user_id: user_id, value: vote_value })
       if vote.save

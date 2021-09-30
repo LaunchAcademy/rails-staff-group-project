@@ -5,7 +5,7 @@ const CommentTile = (props) => {
     const voteObject = {
       review_id: props.review.id,
       current_user_id: props.currentUser.id,
-      vote_value: event.currentTarget.id
+      vote_value: event.currentTarget.id,
     }
     try {
       const response = await fetch(`/api/v1/votes`, {
@@ -13,9 +13,9 @@ const CommentTile = (props) => {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(voteObject)
+        body: JSON.stringify(voteObject),
       })
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
@@ -27,12 +27,24 @@ const CommentTile = (props) => {
     }
   }
 
+  const showVoteButtons = props.currentUser ? (
+    <>
+      <button id="upvote" onClick={handleVoteClick} className="vote-button">
+        &#x1f44d;
+      </button>
+      <button id="downvote" onClick={handleVoteClick} className="vote-button">
+        &#x1F44E;
+      </button>
+    </>
+  ) : (
+    ""
+  )
+
   return (
-    <div>
+    <div className="review-tile">
       <p>Rating: {props.review.rating}</p>
       <p>{props.review.body}</p>
-      <button id="upvote" onClick={handleVoteClick}>Upvote</button>
-      <button id="downvote" onClick={handleVoteClick}>Downvote</button>
+      {showVoteButtons}
     </div>
   )
 }

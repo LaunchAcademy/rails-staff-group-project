@@ -1,0 +1,37 @@
+@import "./colors";
+
+.top-bar {
+  background-color: $blue;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.top-bar-header {
+  font-family: "Londrina Solid", cursive;
+  font-size: 70px;
+  margin: auto;
+}
+
+.top-bar-header a {
+  color: $orange;
+}
+
+.top-bar-header a:hover {
+  color: scale-color($orange, $lightness: -20%);
+}
+
+ul.right {
+  background-color: $blue;
+  list-style-type: none;
+  margin: auto;
+  margin-right: 30px;
+}
+
+ul.right a {
+  font-family: "Londrina Solid", cursive;
+  font-size: 30px;
+  color: $pink
+}
+
+ul.right a:hover {
+  color: scale-color($pink, $lightness: -20%)
+}

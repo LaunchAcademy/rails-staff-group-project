@@ -5,6 +5,7 @@ import ResourceTile from "./ResourceTile"
 
 const ResourceList = (props) => {
   const [resources, setResources] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
 
   const fetchResources = async () => {
     try {
@@ -15,7 +16,9 @@ const ResourceList = (props) => {
         throw error
       }
       const resourcesData = await response.json()
-      setResources(resourcesData.resources)
+      debugger
+      setResources(resourcesData.resources.resources)
+      setCurrentUser(resourcesData.current_user)
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
     }
@@ -29,12 +32,16 @@ const ResourceList = (props) => {
     return <ResourceTile key={resource.id} resource={resource} />
   })
 
+  const addResourceShow = currentUser ? <Link to="/resources/new">Add a resource</Link> : ""
+
   return (
-    <div>
-      <h2>Here is a list of resources:</h2>
+    <div className="body">
+      <h2 className="header">Here is a list of resources:</h2>
       {resourceTiles}
       <br />
-      <h5><Link to="/resources/new">Add a resource</Link></h5>
+      <h5 className="add-resource">
+        {addResourceShow}
+      </h5>
     </div>
   )
 }

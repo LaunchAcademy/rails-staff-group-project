@@ -6,7 +6,7 @@ const ResourceTile = (props) => {
 
   return (
     <p>
-      <Link to={`/resources/${id}`}>{name}</Link>
+      <Link to={`/resources/${id}`} className="resource-tile">{name}</Link>
     </p>
   )
 }
