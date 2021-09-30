@@ -53,19 +53,31 @@ const ResourceShow = (props) => {
     }
   }
 
-  const reviewTiles = resource.reviews.map((review) => {
-    return <ReviewTile key={review.id} review={review} currentUser={currentUser} />
-  })
+  const reviewTiles = resource.reviews.map((review, index) => {
+    let lineBreak
+    if (index < resource.reviews.length - 1) {
+      lineBreak = <p className="review-divider"> ------- </p>
+    }
 
+    return (
+      <React.Fragment key={review.id}>
+        <ReviewTile key={review.id} review={review} currentUser={currentUser} />
+        {lineBreak}
+      </React.Fragment>
+    )
+  })
+  
+  const addReviewShow = currentUser ? <ReviewForm addNewReview={addNewReview} /> : ""
+  
   return (
-    <div>
-      <h1>{resource.name}</h1>
-      <h4>
+    <div className="body">
+      <h1 className="header">{resource.name}</h1>
+      <h4 className="resource-link">
         <a href={resource.url} target="_blank">
           {resource.url}
         </a>
       </h4>
-      <ReviewForm addNewReview={addNewReview} />
+      {addReviewShow}
       {reviewTiles}
     </div>
   )

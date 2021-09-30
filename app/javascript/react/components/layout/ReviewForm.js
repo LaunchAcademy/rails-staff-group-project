@@ -20,8 +20,8 @@ const ReviewForm = (props) => {
   }
 
   return (
-    <div>
-      <h3>Add a review</h3>
+    <div className="review-form">
+      <h3 className="add-review-header">Add a review</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="rating">Rating:</label>
         <input
@@ -41,7 +41,7 @@ const ReviewForm = (props) => {
             value={form.body}
           />
         </label>
-        <input type="submit" value="Add Review" />
+        <input type="submit" value="Add Review" className="submit-button" />
       </form>
     </div>
   )

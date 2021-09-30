@@ -8,7 +8,7 @@ const ResourceForm = (props) => {
   })
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [newResourceId, setNewResourceId] = useState()
-  
+
   const addNewResource = async () => {
     try {
       const response = await fetch("/api/v1/resources", {
@@ -33,23 +33,23 @@ const ResourceForm = (props) => {
       console.error(`Error in Fetch: ${error.message}`)
     }
   }
-  
-    const handleInputChange = (event) => {
-      setFrom({ ...form, [event.currentTarget.name]: event.currentTarget.value })
-    }
-  
-    const handleSubmit = (event) => {
-      event.preventDefault()
-      addNewResource()
-    }
 
-    if (shouldRedirect) {
-      return <Redirect to={`/resources/${newResourceId}`} />
-    }
+  const handleInputChange = (event) => {
+    setFrom({ ...form, [event.currentTarget.name]: event.currentTarget.value })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    addNewResource()
+  }
+
+  if (shouldRedirect) {
+    return <Redirect to={`/resources/${newResourceId}`} />
+  }
 
   return (
-    <div>
-      <h1>Add a resource</h1>
+    <div className="body">
+      <h1 className="header">Add a resource</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
           Name:
@@ -64,7 +64,7 @@ const ResourceForm = (props) => {
           URL:
           <input type="text" id="url" name="url" onChange={handleInputChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="submit-button" />
       </form>
     </div>
   )

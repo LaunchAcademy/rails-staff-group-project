@@ -1,6 +1,9 @@
 class Api::V1::ResourcesController < ApiController
   def index
-    render json: Resource.all
+    render json: {
+      resources: ActiveModelSerializers::SerializableResource.new(Resource.all, each_serializer: ResourceSerializer),
+      current_user: current_user
+    }
   end
 
   def show

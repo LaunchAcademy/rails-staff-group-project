@@ -1,6 +1,7 @@
 class Api::V1::ReviewsController < ApiController
   def create
     review = Review.new(review_params)
+    # review.user = current_user
     review.resource_id = params[:resource_id]
     if review.save
       render json: { review: review }

@@ -1,0 +1,38 @@
+@import "./colors";
+
+.resource-link a {
+  font-family: "Press Start 2P", cursive;
+  color: $pink;
+  font-size: 18px;
+}
+
+.resource-link a:hover {
+  color: scale-color($pink, $lightness: -20%);
+}
+
+.resource-link {
+  margin-bottom: 30px;
+}
+
+.review-form {
+  margin-bottom: 50px;
+}
+
+.add-review-header {
+  margin-bottom: 30px 0 15px 0;
+  font-family: "Press Start 2P", cursive;
+  font-size: 22px;
+}
+
+.review-divider {
+  margin-top: 20px;
+}
+
+.vote-button {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+button#upvote {
+  margin-right: 30px;
+}

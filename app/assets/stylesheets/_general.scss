@@ -1,0 +1,24 @@
+@import "./colors";
+
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: $yellow;
+}
+
+.body {
+  margin: 25px;
+}
+
+.header {
+  font-family: "Press Start 2P", cursive;
+  color: $blue;
+  font-size: 30px;
+  text-shadow: 3px 3px 0px $orange;
+  margin-bottom: 20px;
+}
+
+.submit-button:hover {
+  color: $pink;
+  border-color: $pink;
+  cursor: pointer;
+}

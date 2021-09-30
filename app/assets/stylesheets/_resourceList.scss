@@ -1,0 +1,18 @@
+@import "./colors";
+
+.resource-tile {
+  color: $blue;
+}
+
+.resource-tile:hover {
+  color: scale-color($blue, $lightness: -20%);
+}
+
+.add-resource a {
+  font-family: "Press Start 2P", cursive;
+  color: $pink;
+}
+
+.add-resource a:hover {
+  color: scale-color($pink, $lightness: -20%);
+}
