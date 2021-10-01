@@ -16,7 +16,6 @@ const ResourceList = (props) => {
         throw error
       }
       const resourcesData = await response.json()
-      debugger
       setResources(resourcesData.resources.resources)
       setCurrentUser(resourcesData.current_user)
     } catch (error) {
